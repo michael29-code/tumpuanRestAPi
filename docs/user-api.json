@@ -18,21 +18,24 @@
                     "content": {
                         "application/json": {
                             "examples": {
-                                "michael2910": {
-                                    "description": "Register user michael2910",
+                                "valinaevelyn": {
+                                    "description": "Register user Valina Evelyn",
                                     "value": {
-                                        "username": "michael2910",
+                                        "name": "Valina Evelyn",
+                                        "username": "valinaevelyn",
                                         "password": "rahasia",
-                                        "name": "Michael Ananta"
+                                        "gender": 1,
+                                        "imageKTP": "3827140132.jpeg",
+                                        "dob": "2004-01-1"
                                     }
                                 }
                             },
                             "schema": {
                                 "type": "object",
-                                "required": ["name", "password", "username"],
+                                "required": ["username", "email","password","name","gender","imageKTP","dob"],
                                 "properties": {
                                     "idUser": {
-                                        "type": "string"
+                                        "type": "number"
                                     },
                                     "username": {
                                         "type": "string"
@@ -43,11 +46,18 @@
                                     "name": {
                                         "type": "string"
                                     },
+                                    "gender": {
+                                        "type": "integer"
+                                    },
+                                    "imageKTP": {
+                                        "type": "string"
+                                    },
                                     "email": {
                                         "type": "string"
                                     },
-                                    "birthdate": {
-                                        "type": "string"
+                                    "dob": {
+                                        "type": "string",
+                                        "format": "date"
                                     },
                                     "phonenumber": {
                                         "type": "string"
@@ -74,9 +84,24 @@
                                                     "username must not be blank",
                                                     "username min 6 characters"
                                                 ],
-                                                "name": [
+                                                "password": [
                                                     "username must not be blank",
-                                                    "username min 6 characters"
+                                                    "password min 6 characters"
+                                                ],
+                                                "name": [
+                                                    "name must not be blank"
+                                                ],
+                                                "email": [
+                                                    "email must not be blank"
+                                                ],
+                                                "gender": [
+                                                    "email must not be blank"
+                                                ],
+                                                "imageKTP": [
+                                                    "imageKTP must not be blank"
+                                                ],
+                                                "dob": [
+                                                    "imageKTP must not be blank"
                                                 ]
                                             }
                                         }
@@ -94,9 +119,13 @@
                                         "description": "Success register user",
                                         "value": {
                                             "data": {
-                                                "id": 1,
-                                                "name": "Michael Ananta",
-                                                "username": "michael2910"
+                                                "idUser": 1,
+                                                "name": "Valina Evelyn",
+                                                "username": "valinaevelyn",
+                                                "password": "rahasia",
+                                                "gender": 1,
+                                                "imageKTP": "3827140132.jpeg",
+                                                "dob": "2004-01-1"
                                             }
                                         }
                                     }
@@ -107,13 +136,35 @@
                                         "data": {
                                             "type": "object",
                                             "properties": {
-                                                "id": {
+                                                "idUser": {
                                                     "type": "number"
                                                 },
                                                 "username": {
                                                     "type": "string"
                                                 },
+                                                "password": {
+                                                    "type": "string"
+                                                },
                                                 "name": {
+                                                    "type": "string"
+                                                },
+                                                "gender": {
+                                                    "type": "integer"
+                                                },
+                                                "imageKTP": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "dob": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "phonenumber": {
+                                                    "type": "string"
+                                                },
+                                                "profilePicture": {
                                                     "type": "string"
                                                 }
                                             }
@@ -128,7 +179,8 @@
                     }
                 }
             }
-        },
+        }
+        ,
         "/api/users/login": {
             "post": {
                 "description": "Login user",
@@ -160,7 +212,7 @@
                                         "data": {
                                             "type": "object",
                                             "properties": {
-                                                "id": {
+                                                "idUser": {
                                                     "type": "number"
                                                 },
                                                 "username": {
@@ -205,13 +257,35 @@
                                         "data": {
                                             "type": "object",
                                             "properties": {
-                                                "id": {
+                                                "idUser": {
                                                     "type": "number"
                                                 },
                                                 "username": {
                                                     "type": "string"
                                                 },
+                                                "password": {
+                                                    "type": "string"
+                                                },
                                                 "name": {
+                                                    "type": "string"
+                                                },
+                                                "gender": {
+                                                    "type": "integer"
+                                                },
+                                                "imageKTP": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "dob": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "phonenumber": {
+                                                    "type": "string"
+                                                },
+                                                "profilePicture": {
                                                     "type": "string"
                                                 }
                                             }
@@ -241,6 +315,22 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "dob": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "phonenumber": {
+                                        "type": "string"
+                                    },
+                                    "profilePicture": {
+                                        "type": "string"
+                                    },
                                     "name": {
                                         "type": "string"
                                     },
@@ -263,13 +353,29 @@
                                         "data": {
                                             "type": "object",
                                             "properties": {
-                                                "id": {
+                                                "idUser": {
                                                     "type": "number"
                                                 },
                                                 "username": {
                                                     "type": "string"
                                                 },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "dob": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "phonenumber": {
+                                                    "type": "string"
+                                                },
+                                                "profilePicture": {
+                                                    "type": "string"
+                                                },
                                                 "name": {
+                                                    "type": "string"
+                                                },
+                                                "password": {
                                                     "type": "string"
                                                 }
                                             }

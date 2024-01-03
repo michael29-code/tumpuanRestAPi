@@ -26,13 +26,14 @@
                                         "password": "rahasia",
                                         "gender": 1,
                                         "imageKTP": "3827140132.jpeg",
-                                        "dob": "2004-01-1"
+                                        "dob": "2004-01-1",
+                                        "role": 0
                                     }
                                 }
                             },
                             "schema": {
                                 "type": "object",
-                                "required": ["username", "email","password","name","gender","imageKTP","dob"],
+                                "required": ["username", "email","password","name","gender","imageKTP","dob","role"],
                                 "properties": {
                                     "idUser": {
                                         "type": "number"
@@ -64,6 +65,9 @@
                                     },
                                     "profilePicture": {
                                         "type": "string"
+                                    },
+                                    "role": {
+                                        "type": "number"
                                     }
                                 }
                             }
@@ -101,7 +105,10 @@
                                                     "imageKTP must not be blank"
                                                 ],
                                                 "dob": [
-                                                    "imageKTP must not be blank"
+                                                    "dob must not be blank"
+                                                ],
+                                                "role": [
+                                                    "role must not be blank"
                                                 ]
                                             }
                                         }
@@ -125,7 +132,8 @@
                                                 "password": "rahasia",
                                                 "gender": 1,
                                                 "imageKTP": "3827140132.jpeg",
-                                                "dob": "2004-01-1"
+                                                "dob": "2004-01-1",
+                                                "role": 0
                                             }
                                         }
                                     }
@@ -166,6 +174,9 @@
                                                 },
                                                 "profilePicture": {
                                                     "type": "string"
+                                                }
+                                                "role": {
+                                                    "type": "number"
                                                 }
                                             }
                                         },

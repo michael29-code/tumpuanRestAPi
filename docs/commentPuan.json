@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.3",
     "info": {
-        "title": "Suara Puan API",
-        "description": "Suara Puan API",
+        "title": "comment API",
+        "description": "comment API",
         "version": "1.0.0"
     },
     "servers": [
@@ -11,9 +11,9 @@
         }
     ],
     "paths": {
-        "/api/suarapuans": {
+        "/api/comments": {
             "post": {
-                "description": "Create new Suara Puan",
+                "description": "Create new comment",
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -21,22 +21,19 @@
                     }
                 ],
                 "requestBody": {
-                    "description": "Create new Suara Puan",
+                    "description": "Create new comment",
                     "content": {
                         "application/json": {
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "idKategori": {
+                                    "idUser": {
                                         "type": "number"
                                     },
-                                    "title": {
-                                        "type": "string"
+                                    "idSuaraPuan": {
+                                        "type": "number"
                                     },
-                                    "content": {
-                                        "type": "string"
-                                    },
-                                    "media": {
+                                    "comment": {
                                         "type": "string"
                                     }
                                 }
@@ -46,7 +43,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Success create Suara Puan",
+                        "description": "Success create comment",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -55,27 +52,20 @@
                                         "data": {
                                             "type": "object",
                                             "properties": {
+                                                "idComment": {
+                                                    "type": "number"
+                                                },
+                                                "idUser": {
+                                                    "type": "number"
+                                                },
                                                 "idSuaraPuan": {
                                                     "type": "number"
                                                 },
-                                                "idKategori": {
-                                                    "type": "number"
-                                                },
-                                                "idComment":{
-                                                    "type": "number"
-                                                },
-                                                "title": {
-                                                    "type": "string"
-                                                },
-                                                "content": {
-                                                    "type": "string"
-                                                },
-                                                "media": {
+                                                "comment": {
                                                     "type": "string"
                                                 },
                                                 "dop": {
-                                                    "type": "string",
-                                                    "format": "date"
+                                                    "type": "string"
                                                 }
                                             }
                                         },
@@ -90,7 +80,7 @@
                 }
             },
             "get": {
-                "description": "Search Suara Puan",
+                "description": "Search comment",
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -103,7 +93,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success search Suara Puan",
+                        "description": "Success search comments",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -114,16 +104,19 @@
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "idKategori": {
+                                                   "idComment": {
+                                                    "type": "number"
+                                                    },
+                                                    "idUser": {
                                                         "type": "number"
                                                     },
-                                                    "title": {
+                                                    "idSuaraPuan": {
+                                                        "type": "number"
+                                                    },
+                                                    "comment": {
                                                         "type": "string"
                                                     },
-                                                    "content": {
-                                                        "type": "string"
-                                                    },
-                                                    "media": {
+                                                    "dop": {
                                                         "type": "string"
                                                     }
                                                 }
@@ -143,9 +136,9 @@
                 }
             }
         },
-        "/api/suarapuan/{id}": {
+        "/api/comments/{id}": {
             "put": {
-                "description": "Update Suara Puan",
+                "description": "Update comment",
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -157,27 +150,14 @@
                     }
                 ],
                 "requestBody": {
-                    "description": "Update Suara Puan",
+                    "description": "Update comment",
                     "content": {
                         "application/json": {
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "idKategori": {
-                                        "type": "number"
-                                    },
-                                    "title": {
+                                    "comment": {
                                         "type": "string"
-                                    },
-                                    "content": {
-                                        "type": "string"
-                                    },
-                                    "media": {
-                                        "type": "string"
-                                    },
-                                    "dou": {
-                                        "type": "string",
-                                        "format": "date"
                                     }
                                 }
                             }
@@ -186,7 +166,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success update Suara Puan",
+                        "description": "Success update comment",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -195,27 +175,20 @@
                                         "data": {
                                             "type": "object",
                                             "properties": {
+                                                "idComment": {
+                                                    "type": "number"
+                                                },
+                                                "idUser": {
+                                                    "type": "number"
+                                                },
                                                 "idSuaraPuan": {
                                                     "type": "number"
                                                 },
-                                                "idKategori": {
-                                                    "type": "number"
-                                                },
-                                                "idComment":{
-                                                    "type": "number"
-                                                },
-                                                "title": {
-                                                    "type": "string"
-                                                },
-                                                "content": {
-                                                    "type": "string"
-                                                },
-                                                "media": {
+                                                "comment": {
                                                     "type": "string"
                                                 },
                                                 "dop": {
-                                                    "type": "string",
-                                                    "format": "date"
+                                                    "type": "string"
                                                 }
                                             }
                                         },
@@ -230,7 +203,7 @@
                 }
             },
             "get": {
-                "description": "Get Suara Puan",
+                "description": "Get comment",
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -243,7 +216,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success get Suara Puan",
+                        "description": "Success get comment",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -252,27 +225,20 @@
                                         "data": {
                                             "type": "object",
                                             "properties": {
+                                                "idComment": {
+                                                    "type": "number"
+                                                },
+                                                "idUser": {
+                                                    "type": "number"
+                                                },
                                                 "idSuaraPuan": {
                                                     "type": "number"
                                                 },
-                                                "idKategori": {
-                                                    "type": "number"
-                                                },
-                                                "idComment":{
-                                                    "type": "number"
-                                                },
-                                                "title": {
-                                                    "type": "string"
-                                                },
-                                                "content": {
-                                                    "type": "string"
-                                                },
-                                                "media": {
+                                                "comment": {
                                                     "type": "string"
                                                 },
                                                 "dop": {
-                                                    "type": "string",
-                                                    "format": "date"
+                                                    "type": "string"
                                                 }
                                             }
                                         },
@@ -287,7 +253,7 @@
                 }
             },
             "delete": {
-                "description": "Remove  Suara Puan",
+                "description": "Remove comment",
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -300,7 +266,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success delete  Suara Puan",
+                        "description": "Success delete comment",
                         "content": {
                             "application/json": {
                                 "schema": {

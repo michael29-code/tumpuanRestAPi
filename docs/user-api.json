@@ -174,7 +174,7 @@
                                                 },
                                                 "profilePicture": {
                                                     "type": "string"
-                                                }
+                                                },
                                                 "role": {
                                                     "type": "number"
                                                 }

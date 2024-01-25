@@ -1,0 +1,410 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "untukpuan API",
+        "description": "untukpuan API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "paths": {
+        "/api/untukpuans": {
+            "post": {
+                "description": "Create new untukpuan",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Create new untukpuan",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idKategori": {
+                                        "type": "number"
+                                    },
+                                    "nama": {
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "type": "string"
+                                    },
+                                    "deskripsi": {
+                                        "type": "string"
+                                    },
+                                    "phoneNumber": {
+                                        "type": "number"
+                                    },
+                                    "jamBuka": {
+                                        "type": "string"
+                                    },
+                                    "jamTutup": {
+                                        "type": "string"
+                                    },
+                                    "foto": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "number"
+                                    },
+                                    "website": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success create untukpuan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "idKategori": {
+                                                    "type": "number"
+                                                },
+                                                "nama": {
+                                                    "type": "string"
+                                                },
+                                                "alamat": {
+                                                    "type": "string"
+                                                },
+                                                "deskripsi": {
+                                                    "type": "string"
+                                                },
+                                                "phoneNumber": {
+                                                    "type": "number"
+                                                },
+                                                "jamBuka": {
+                                                    "type": "string"
+                                                },
+                                                "jamTutup": {
+                                                    "type": "string"
+                                                },
+                                                "foto": {
+                                                    "type": "string"
+                                                },
+                                                "price": {
+                                                    "type": "number"
+                                                },
+                                                "website": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Search untukpuan",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "deskripsi",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success search untukpuans",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number"
+                                                    },
+                                                    "idKategori": {
+                                                        "type": "number"
+                                                    },
+                                                    "nama": {
+                                                        "type": "string"
+                                                    },
+                                                    "alamat": {
+                                                        "type": "string"
+                                                    },
+                                                    "deskripsi": {
+                                                        "type": "string"
+                                                    },
+                                                    "phoneNumber": {
+                                                        "type": "number"
+                                                    },
+                                                    "jamBuka": {
+                                                        "type": "string"
+                                                    },
+                                                    "jamTutup": {
+                                                        "type": "string"
+                                                    },
+                                                    "foto": {
+                                                        "type": "string"
+                                                    },
+                                                    "price": {
+                                                        "type": "number"
+                                                    },
+                                                    "website": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/untukpuans/{id}": {
+            "put": {
+                "description": "Update untukpuan",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update untukpuan",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "idKategori": {
+                                        "type": "number"
+                                    },
+                                    "nama": {
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "type": "string"
+                                    },
+                                    "deskripsi": {
+                                        "type": "string"
+                                    },
+                                    "phoneNumber": {
+                                        "type": "number"
+                                    },
+                                    "jamBuka": {
+                                        "type": "string"
+                                    },
+                                    "jamTutup": {
+                                        "type": "string"
+                                    },
+                                    "foto": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "number"
+                                    },
+                                    "website": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success update untukpuan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "idKategori": {
+                                                    "type": "number"
+                                                },
+                                                "nama": {
+                                                    "type": "string"
+                                                },
+                                                "alamat": {
+                                                    "type": "string"
+                                                },
+                                                "deskripsi": {
+                                                    "type": "string"
+                                                },
+                                                "phoneNumber": {
+                                                    "type": "number"
+                                                },
+                                                "jamBuka": {
+                                                    "type": "string"
+                                                },
+                                                "jamTutup": {
+                                                    "type": "string"
+                                                },
+                                                "foto": {
+                                                    "type": "string"
+                                                },
+                                                "price": {
+                                                    "type": "number"
+                                                },
+                                                "website": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Get untukpuan",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get untukpuan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                 "id": {
+                                                        "type": "number"
+                                                },
+                                                "idKategori": {
+                                                    "type": "number"
+                                                },
+                                                "nama": {
+                                                    "type": "string"
+                                                },
+                                                "alamat": {
+                                                    "type": "string"
+                                                },
+                                                "deskripsi": {
+                                                    "type": "string"
+                                                },
+                                                "phoneNumber": {
+                                                    "type": "number"
+                                                },
+                                                "jamBuka": {
+                                                    "type": "string"
+                                                },
+                                                "jamTutup": {
+                                                    "type": "string"
+                                                },
+                                                "foto": {
+                                                    "type": "string"
+                                                },
+                                                "price": {
+                                                    "type": "number"
+                                                },
+                                                "website": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove untukpuan",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success delete untukpuan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "boolean"
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -23,7 +23,17 @@ class UserSeeder extends Seeder
             "dob"=> "2004-01-1",
             'gender' => 0,
             'role' => 0,
-            'token' => ''
+            'token' => 'test'
+        ]);
+        User::create([
+            'username' => 'test2',
+            'email' => 'test2@gmail.com',
+            'password' => Hash::make('test'),
+            'name' => 'test2',
+            "dob"=> "2004-01-1",
+            'gender' => 0,
+            'role' => 0,
+            'token' => 'test2'
         ]);
     }
 }

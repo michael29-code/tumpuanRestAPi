@@ -20,3 +20,16 @@ use Illuminate\Support\Facades\Route;
 Route::post('/users', [\App\Http\Controllers\UserController::class, 'register']);
 
 Route::post('/users/login', [\App\Http\Controllers\UserController::class, 'login']);
+
+Route::middleware(\App\Http\Middleware\ApiAuthMiddleware::class)->group(function () {
+    Route::get('/users/current', [\App\Http\Controllers\UserController::class, 'get']);
+    Route::patch('/users/current', [\App\Http\Controllers\UserController::class, 'update']);
+    Route::delete('/users/logout', [\App\Http\Controllers\UserController::class, 'logout']);
+
+    Route::post('/kategoriuntukpuans', [\App\Http\Controllers\KategoriUntukPuanController::class, 'create']);
+    Route::get('/kategoriuntukpuans', [\App\Http\Controllers\KategoriUntukPuanController::class, 'search']);
+
+    Route::get('/kategoriuntukpuans/{id}', [\App\Http\Controllers\KategoriUntukPuanController::class, 'get'])->where('id', '[0-9]+');
+    Route::put('/kategoriuntukpuans/{id}', [\App\Http\Controllers\KategoriUntukPuanController::class, 'update'])->where('id', '[0-9]+');
+    Route::delete('/kategoriuntukpuans/{id}', [\App\Http\Controllers\KategoriUntukPuanController::class, 'delete'])->where('id', '[0-9]+');
+});

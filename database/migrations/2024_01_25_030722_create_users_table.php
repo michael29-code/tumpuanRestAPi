@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id(); // primary key, auto_increment
-            $table->string('username')->notNull();
-            $table->string('email')->notNull();
-            $table->string('password')->notNull();
-            $table->string('name')->notNull();
-            $table->string('gender')->notNull();
-            $table->date('dob')->notNull();
-            $table->integer('role')->notNull(); // bukan auto_increment, bukan primary key
-            $table->string('token')->nullable();
+            $table->string("username", 100)->nullable(false)->unique("users_username_unique");
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
+            $table->string('name')->nullable();
+            $table->string('gender')->nullable();
+            $table->date('dob')->nullable();
+            $table->integer('role')->nullable(); // bukan auto_increment, bukan primary key
+            $table->string("token", 100)->nullable()->unique("users_token_unique");
             $table->timestamps(); // created_at dan updated_at
         });
     }

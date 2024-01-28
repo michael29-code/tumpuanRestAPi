@@ -52,7 +52,7 @@
                                                 "id": {
                                                     "type": "number"
                                                 },
-                                                 "nama": {
+                                                "nama": {
                                                     "type": "string"
                                                 },
                                                 "deskripsi": {
@@ -98,7 +98,7 @@
                                                     "id": {
                                                         "type": "number"
                                                     },
-                                                     "nama": {
+                                                    "nama": {
                                                         "type": "string"
                                                     },
                                                     "deskripsi": {
@@ -166,7 +166,7 @@
                                                 "id": {
                                                     "type": "number"
                                                 },
-                                                 "nama": {
+                                                "nama": {
                                                     "type": "string"
                                                 },
                                                 "deskripsi": {
@@ -210,7 +210,7 @@
                                                 "id": {
                                                     "type": "number"
                                                 },
-                                                 "nama": {
+                                                "nama": {
                                                     "type": "string"
                                                 },
                                                 "deskripsi": {

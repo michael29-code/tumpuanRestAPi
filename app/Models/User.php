@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Model implements Authenticatable
 {
@@ -23,6 +24,12 @@ class User extends Model implements Authenticatable
         'role',
         'name'
     ];
+
+
+    // public function role(): BelongsTo
+    // {
+    //     return $this->belongsTo(User::class, "user_id", "id");
+    // }
 
     public function getAuthIdentifierName()
     {

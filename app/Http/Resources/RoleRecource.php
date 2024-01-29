@@ -2,10 +2,12 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Role;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class KategoruUntukPuanResource extends JsonResource
+class RoleRecource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,7 +18,7 @@ class KategoruUntukPuanResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'nama_kategori' => $this->nama_kategori,
+            'nama_role' => $this->nama_role,
             'deskripsi' => $this->deskripsi
         ];
     }

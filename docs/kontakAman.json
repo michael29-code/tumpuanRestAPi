@@ -11,7 +11,7 @@
         }
     ],
     "paths": {
-        "/api/roles": {
+        "/api/kontakamans": {
             "post": {
                 "description": "Create new kontak",
                 "parameters": [
@@ -130,7 +130,7 @@
                 }
             }
         },
-        "/api/roles/{id}": {
+        "/api/kontakamans/{id}": {
             "put": {
                 "description": "Update role",
                 "parameters": [

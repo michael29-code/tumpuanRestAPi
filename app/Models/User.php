@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Model implements Authenticatable
 {
@@ -24,6 +25,16 @@ class User extends Model implements Authenticatable
         'role',
         'name'
     ];
+    public function kontak_amen(): HasMany
+    {
+        return $this->hasMany(KontakAman::class, "user_id", "id");
+    }
+
+
+    // public function role(): BelongsTo
+    // {
+    //     return $this->belongsTo(User::class, "user_id", "id");
+    // }
 
 
     // public function role(): BelongsTo

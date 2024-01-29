@@ -61,7 +61,7 @@
                                                 "idKategori": {
                                                     "type": "number"
                                                 },
-                                                "idComment":{
+                                                "idComment": {
                                                     "type": "number"
                                                 },
                                                 "title": {
@@ -175,7 +175,7 @@
                                     "media": {
                                         "type": "string"
                                     },
-                                    "dou": {
+                                    "dop": {
                                         "type": "string",
                                         "format": "date"
                                     }
@@ -201,7 +201,7 @@
                                                 "idKategori": {
                                                     "type": "number"
                                                 },
-                                                "idComment":{
+                                                "idComment": {
                                                     "type": "number"
                                                 },
                                                 "title": {
@@ -258,7 +258,7 @@
                                                 "idKategori": {
                                                     "type": "number"
                                                 },
-                                                "idComment":{
+                                                "idComment": {
                                                     "type": "number"
                                                 },
                                                 "title": {

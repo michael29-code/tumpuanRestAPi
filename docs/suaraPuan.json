@@ -11,13 +11,17 @@
         }
     ],
     "paths": {
-        "/api/suarapuans": {
+        "/api/kategorisuarapuans/{idKategori}/suarapuans": {
             "post": {
                 "description": "Create new Suara Puan",
                 "parameters": [
                     {
                         "name": "Authorization",
                         "in": "header"
+                    },
+                    {
+                        "name": "idKategori",
+                        "in": "path"
                     }
                 ],
                 "requestBody": {
@@ -27,9 +31,6 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "idKategori": {
-                                        "type": "number"
-                                    },
                                     "title": {
                                         "type": "string"
                                     },
@@ -38,6 +39,10 @@
                                     },
                                     "media": {
                                         "type": "string"
+                                    },
+                                    "dop": {
+                                        "type": "string",
+                                        "format": "date"
                                     }
                                 }
                             }
@@ -55,13 +60,7 @@
                                         "data": {
                                             "type": "object",
                                             "properties": {
-                                                "idSuaraPuan": {
-                                                    "type": "number"
-                                                },
-                                                "idKategori": {
-                                                    "type": "number"
-                                                },
-                                                "idComment": {
+                                                "id": {
                                                     "type": "number"
                                                 },
                                                 "title": {
@@ -114,9 +113,6 @@
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "idKategori": {
-                                                        "type": "number"
-                                                    },
                                                     "title": {
                                                         "type": "string"
                                                     },
@@ -125,6 +121,10 @@
                                                     },
                                                     "media": {
                                                         "type": "string"
+                                                    },
+                                                    "dop": {
+                                                        "type": "string",
+                                                        "format": "date"
                                                     }
                                                 }
                                             }
@@ -143,7 +143,7 @@
                 }
             }
         },
-        "/api/suarapuan/{id}": {
+        "/api/kategorisuarapuans/{idKategori}/suarapuans/{idSuaraPuan}": {
             "put": {
                 "description": "Update Suara Puan",
                 "parameters": [
@@ -152,7 +152,11 @@
                         "in": "header"
                     },
                     {
-                        "name": "id",
+                        "name": "idKategori",
+                        "in": "path"
+                    },
+                    {
+                        "name": "idSuaraPuan",
                         "in": "path"
                     }
                 ],
@@ -163,9 +167,6 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "idKategori": {
-                                        "type": "number"
-                                    },
                                     "title": {
                                         "type": "string"
                                     },
@@ -294,13 +295,17 @@
                         "in": "header"
                     },
                     {
-                        "name": "id",
+                        "name": "idKategori",
+                        "in": "path"
+                    },
+                    {
+                        "name": "idSuaraPuan",
                         "in": "path"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success delete  Suara Puan",
+                        "description": "Success delete",
                         "content": {
                             "application/json": {
                                 "schema": {

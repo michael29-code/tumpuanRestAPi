@@ -30,6 +30,11 @@ class User extends Model implements Authenticatable
         return $this->hasMany(KontakAman::class, "user_id", "id");
     }
 
+    public function suarapuan(): HasMany
+    {
+        return $this->hasMany(SuaraPuan::class, "user_id", "id");
+    }
+
 
     // public function role(): BelongsTo
     // {

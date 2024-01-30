@@ -25,7 +25,7 @@ Route::middleware(\App\Http\Middleware\ApiAuthMiddleware::class)->group(function
     Route::get('/users/current', [\App\Http\Controllers\UserController::class, 'get']);
     Route::patch('/users/current', [\App\Http\Controllers\UserController::class, 'update']);
     Route::delete('/users/logout', [\App\Http\Controllers\UserController::class, 'logout']);
-    
+
     Route::post('/roles', [\App\Http\Controllers\RoleController::class, 'create']);
     Route::get('/roles/{id}', [\App\Http\Controllers\RoleController::class, 'get'])->where('id', '[0-9]+');
     Route::put('/roles/{id}', [\App\Http\Controllers\RoleController::class, 'update'])->where('id', '[0-9]+');
@@ -35,6 +35,11 @@ Route::middleware(\App\Http\Middleware\ApiAuthMiddleware::class)->group(function
     Route::get('/kontakamans/{id}', [\App\Http\Controllers\KontakAmanController::class, 'get'])->where('id', '[0-9]+');
     Route::put('/kontakamans/{id}', [\App\Http\Controllers\KontakAmanController::class, 'update'])->where('id', '[0-9]+');
     Route::delete('/kontakamans/{id}', [\App\Http\Controllers\KontakAmanController::class, 'delete'])->where('id', '[0-9]+');
+
+    Route::post('/kategorisuarapuans/{idKategori}/suarapuans', [\App\Http\Controllers\SuaraPuanController::class, 'create'])->where('idKategori', '[0-9]+');
+    Route::get('/kategorisuarapuans/{idKategori}/suarapuans/{idSuaraPuan}', [\App\Http\Controllers\SuaraPuanController::class, 'get'])->where('idKategori', '[0-9]+')->where('idSuaraPuan', '[0-9]+');
+    Route::put('/kategorisuarapuans/{idKategori}/suarapuans/{idSuaraPuan}', [\App\Http\Controllers\SuaraPuanController::class, 'update'])->where('idKategori', '[0-9]+')->where('idSuaraPuan', '[0-9]+');
+    Route::delete('/kategorisuarapuans/{idKategori}/suarapuans/{idSuaraPuan}', [\App\Http\Controllers\SuaraPuanController::class, 'delete'])->where('idKategori', '[0-9]+')->where('idSuaraPuan', '[0-9]+');
 });
 
 Route::post('/kategoriuntukpuans', [\App\Http\Controllers\KategoriUntukPuanController::class, 'create']);

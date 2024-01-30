@@ -18,8 +18,8 @@ class KategoriSuaraPuan extends Model
         'deskripsi'
     ];
 
-    // public function suaraPuan(): HasMany
-    // {
-    //     return $this->hasMany(SuaraPuan::class, 'kategori_suara_puan_id', 'id');
-    // }
+    public function suarapuan(): HasMany
+    {
+        return $this->hasMany(SuaraPuan::class, "kategori_id", "id");
+    }
 }

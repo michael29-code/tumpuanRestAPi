@@ -38,6 +38,8 @@ Route::middleware(\App\Http\Middleware\ApiAuthMiddleware::class)->group(function
 
     Route::post('/suarapuans', [\App\Http\Controllers\SuaraPuanController::class, 'create']);
     Route::get('/suarapuans/{id}', [\App\Http\Controllers\SuaraPuanController::class, 'get'])->where('id', '[0-9]+');
+    Route::put('/suarapuans/{id}', [\App\Http\Controllers\SuaraPuanController::class, 'update'])->where('id', '[0-9]+');
+    Route::delete('/suarapuans/{id}', [\App\Http\Controllers\SuaraPuanController::class, 'delete'])->where('id', '[0-9]+');
 });
 
 Route::post('/kategoriuntukpuans', [\App\Http\Controllers\KategoriUntukPuanController::class, 'create']);

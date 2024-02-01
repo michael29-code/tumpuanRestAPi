@@ -46,4 +46,47 @@ class SuaraPuanController extends Controller
         return new SuaraPuanResource($suarapuan);
     }
 
+    public function update(int $id, SuaraPuanUpdateRequest $request): SuaraPuanResource
+    {
+        $user = Auth::user();
+
+        $suarapuan = SuaraPuan::where('id', $id)->where('user_id', $user->id)->first();
+        if (!$suarapuan) {
+            throw new HttpResponseException(response()->json([
+                'errors' => [
+                    "message" => [
+                        "not found"
+                    ]
+                ]
+            ])->setStatusCode(404));
+        }
+
+        $data = $request->validated();
+        $suarapuan->fill($data);
+        $suarapuan->save();
+
+        return new SuaraPuanResource($suarapuan);
+    }
+
+    public function delete(int $id): JsonResponse
+    {
+        $user = Auth::user();
+
+        $suarapuan = SuaraPuan::where('id', $id)->where('user_id', $user->id)->first();
+        if (!$suarapuan) {
+            throw new HttpResponseException(response()->json([
+                'errors' => [
+                    "message" => [
+                        "not found"
+                    ]
+                ]
+            ])->setStatusCode(404));
+        }
+
+        $suarapuan->delete();
+
+        return response()->json([
+            'data' => true
+        ])->setStatusCode(200);
+    }
 }

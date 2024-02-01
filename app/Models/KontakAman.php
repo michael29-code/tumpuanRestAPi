@@ -18,7 +18,8 @@ class KontakAman extends Model
     protected $fillable = [
         "name",
         "phoneNumber",
-        "relation"
+        "relation",
+        "kategori_id"
     ];
 
     public function user(): BelongsTo

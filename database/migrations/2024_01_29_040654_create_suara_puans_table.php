@@ -16,8 +16,8 @@ return new class extends Migration {
             $table->string('content', 100)->nullable(false);
             $table->string('media', 100)->nullable(false);
             $table->string('dop', 100)->nullable(false);
-            $table->unsignedBigInteger("user_id")->nullable(false);
             $table->unsignedBigInteger("kategori_id")->nullable(false);
+            $table->unsignedBigInteger("user_id")->nullable(false);
             $table->timestamps();
             $table->foreign("user_id")->on("users")->references("id");
             $table->foreign("kategori_id")->on("kategori_suara_puans")->references("id");

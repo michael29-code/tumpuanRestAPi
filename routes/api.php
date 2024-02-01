@@ -36,10 +36,8 @@ Route::middleware(\App\Http\Middleware\ApiAuthMiddleware::class)->group(function
     Route::put('/kontakamans/{id}', [\App\Http\Controllers\KontakAmanController::class, 'update'])->where('id', '[0-9]+');
     Route::delete('/kontakamans/{id}', [\App\Http\Controllers\KontakAmanController::class, 'delete'])->where('id', '[0-9]+');
 
-    Route::post('/kategorisuarapuans/{idKategori}/suarapuans', [\App\Http\Controllers\SuaraPuanController::class, 'create'])->where('idKategori', '[0-9]+');
-    Route::get('/kategorisuarapuans/{idKategori}/suarapuans/{idSuaraPuan}', [\App\Http\Controllers\SuaraPuanController::class, 'get'])->where('idKategori', '[0-9]+')->where('idSuaraPuan', '[0-9]+');
-    Route::put('/kategorisuarapuans/{idKategori}/suarapuans/{idSuaraPuan}', [\App\Http\Controllers\SuaraPuanController::class, 'update'])->where('idKategori', '[0-9]+')->where('idSuaraPuan', '[0-9]+');
-    Route::delete('/kategorisuarapuans/{idKategori}/suarapuans/{idSuaraPuan}', [\App\Http\Controllers\SuaraPuanController::class, 'delete'])->where('idKategori', '[0-9]+')->where('idSuaraPuan', '[0-9]+');
+    Route::post('/suarapuans', [\App\Http\Controllers\SuaraPuanController::class, 'create']);
+    Route::get('/suarapuans/{id}', [\App\Http\Controllers\SuaraPuanController::class, 'get'])->where('id', '[0-9]+');
 });
 
 Route::post('/kategoriuntukpuans', [\App\Http\Controllers\KategoriUntukPuanController::class, 'create']);

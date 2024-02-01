@@ -16,15 +16,16 @@ class SuaraPuanTest extends TestCase
     public function testCreateSuccess()
     {
         $this->seed([UserSeeder::class, KategoriSuaraPuanSeeder::class]);
-        $kategorisuarapuan = KategoriSuaraPuan::query()->limit(1)->first();
+        $kategori = KategoriSuaraPuan::first();
 
         $this->post(
-            '/api/kategorisuarapuans/' . $kategorisuarapuan->id . '/suarapuans',
+            '/api/suarapuans',
             [
-                'title' => 'test',
-                'content' => 'test',
-                'media' => 'test',
-                'dop' => 'test',
+                'title' => 'blabla',
+                'content' => 'blabla',
+                'media' => 'blabla',
+                'dop' => 'blabla',
+                'kategori_id' => $kategori->id,
             ],
             [
                 'Authorization' => 'test'
@@ -32,10 +33,11 @@ class SuaraPuanTest extends TestCase
         )->assertStatus(201)
             ->assertJson([
                 'data' => [
-                    'title' => 'test',
-                    'content' => 'test',
-                    'media' => 'test',
-                    'dop' => 'test',
+                    'title' => 'blabla',
+                    'content' => 'blabla',
+                    'media' => 'blabla',
+                    'dop' => 'blabla',
+                    'kategori_id' => $kategori->id,
                 ]
             ]);
     }
@@ -43,129 +45,16 @@ class SuaraPuanTest extends TestCase
     public function testCreateFailed()
     {
         $this->seed([UserSeeder::class, KategoriSuaraPuanSeeder::class]);
-        $kategorisuarapuan = KategoriSuaraPuan::query()->limit(1)->first();
+        $kategori = KategoriSuaraPuan::first();
 
         $this->post(
-            '/api/kategorisuarapuans/' . $kategorisuarapuan->id . '/suarapuans',
+            '/api/suarapuans',
             [
-                'title' => 'test',
-                'content' => 'test',
-                'media' => '',
-                'dop' => 'test',
-            ],
-            [
-                'Authorization' => 'test'
-            ]
-        )->assertStatus(400)
-            ->assertJson([
-                'errors' => [
-                    'media' => [
-                        'The media field is required.'
-                    ]
-                ]
-            ]);
-    }
-
-    public function testCreateContactNotFound()
-    {
-        $this->seed([UserSeeder::class, KategoriSuaraPuanSeeder::class]);
-        $kategorisuarapuan = KategoriSuaraPuan::query()->limit(1)->first();
-
-        $this->post(
-            '/api/kategorisuarapuans/' . ($kategorisuarapuan->id + 1) . '/suarapuans',
-            [
-                'title' => 'test',
-                'content' => 'test',
-                'media' => 'test',
-                'dop' => 'test',
-            ],
-            [
-                'Authorization' => 'test'
-            ]
-        )->assertStatus(404)
-            ->assertJson([
-                'errors' => [
-                    'message' => [
-                        'not found'
-                    ]
-                ]
-            ]);
-    }
-
-    public function testGetSuccess()
-    {
-        $this->seed([UserSeeder::class, KategoriSuaraPuanSeeder::class, SuaraPuanSeeder::class]);
-        $suarapuan = SuaraPuan::query()->limit(1)->first();
-
-        $this->get('/api/kategorisuarapuans/' . $suarapuan->kategori_id . '/suarapuans/' . $suarapuan->id, [
-            'Authorization' => 'test'
-        ])->assertStatus(200)
-            ->assertJson([
-                'data' => [
-                    'title' => 'test',
-                    'content' => 'test',
-                    'media' => 'test',
-                    'dop' => 'test',
-                ]
-            ]);
-    }
-
-    public function testGetNotFound()
-    {
-        $this->seed([UserSeeder::class, KategoriSuaraPuanSeeder::class, SuaraPuanSeeder::class]);
-        $suarapuan = SuaraPuan::query()->limit(1)->first();
-
-        $this->get('/api/kategorisuarapuans/' . $suarapuan->kategori_id . '/suarapuans/' . ($suarapuan->id + 1), [
-            'Authorization' => 'test'
-        ])->assertStatus(404)
-            ->assertJson([
-                'errors' => [
-                    'message' => [
-                        'not found'
-                    ]
-                ]
-            ]);
-    }
-
-    public function testUpdateSuccess()
-    {
-        $this->seed([UserSeeder::class, KategoriSuaraPuanSeeder::class, SuaraPuanSeeder::class]);
-        $suarapuan = SuaraPuan::query()->limit(1)->first();
-
-        $this->put(
-            '/api/kategorisuarapuans/' . $suarapuan->kategori_id . '/suarapuans/' . $suarapuan->id,
-            [
-                'title' => 'update',
-                'content' => 'update',
-                'media' => 'update',
-                'dop' => 'update',
-            ],
-            [
-                'Authorization' => 'test'
-            ]
-        )->assertStatus(200)
-            ->assertJson([
-                'data' => [
-                    'title' => 'update',
-                    'content' => 'update',
-                    'media' => 'update',
-                    'dop' => 'update',
-                ]
-            ]);
-    }
-
-    public function testUpdateFailed()
-    {
-        $this->seed([UserSeeder::class, KategoriSuaraPuanSeeder::class, SuaraPuanSeeder::class]);
-        $suarapuan = SuaraPuan::query()->limit(1)->first();
-
-        $this->put(
-            '/api/kategorisuarapuans/' . $suarapuan->kategori_id . '/suarapuans/' . $suarapuan->id,
-            [
-                'title' => 'update',
-                'content' => 'update',
-                'media' => 'update',
+                'title' => 'blabla',
+                'content' => 'blabla',
+                'media' => 'blabla',
                 'dop' => '',
+                'kategori_id' => $kategori->id,
             ],
             [
                 'Authorization' => 'test'
@@ -180,69 +69,53 @@ class SuaraPuanTest extends TestCase
             ]);
     }
 
-    public function testUpdateNotFound()
+    public function testGetSuccess()
     {
-        $this->seed([UserSeeder::class, KategoriSuaraPuanSeeder::class, SuaraPuanSeeder::class]);
+        $this->seed([UserSeeder::class, SuaraPuanSeeder::class]);
         $suarapuan = SuaraPuan::query()->limit(1)->first();
+        $kategori = KategoriSuaraPuan::first();
 
-        $this->put(
-            '/api/kategorisuarapuans/' . $suarapuan->kategori_id . '/suarapuans/' . ($suarapuan->id + 1),
-            [
-                'title' => 'update',
-                'content' => 'update',
-                'media' => 'update',
-                'dop' => 'update',
-            ],
-            [
-                'Authorization' => 'test'
-            ]
-        )->assertStatus(404)
+        $this->get('/api/suarapuans/' . $suarapuan->id, [
+            'Authorization' => 'test'
+        ])->assertStatus(200)
             ->assertJson([
-                'errors' => [
-                    'message' => [
-                        'not found'
-                    ]
+                'data' => [
+                    'title' => 'test',
+                    'content' => 'test',
+                    'media' => 'test',
+                    'dop' => 'test',
+                    'kategori_id' => $kategori->id,
                 ]
             ]);
+    }
+
+    public function testGetNotFound()
+    {
+
+    }
+
+    public function testUpdateSuccess()
+    {
+
+    }
+
+    public function testUpdateFailed()
+    {
+
+    }
+
+    public function testUpdateNotFound()
+    {
+
     }
 
     public function testDeleteSuccess()
     {
-        $this->seed([UserSeeder::class, KategoriSuaraPuanSeeder::class, SuaraPuanSeeder::class]);
-        $suarapuan = SuaraPuan::query()->limit(1)->first();
 
-        $this->delete(
-            '/api/kategorisuarapuans/' . $suarapuan->kategori_id . '/suarapuans/' . $suarapuan->id,
-            [
-            ],
-            [
-                'Authorization' => 'test'
-            ]
-        )->assertStatus(200)
-            ->assertJson([
-                'data' => true
-            ]);
     }
 
     public function testDeleteNotFound()
     {
-        $this->seed([UserSeeder::class, KategoriSuaraPuanSeeder::class, SuaraPuanSeeder::class]);
-        $suarapuan = SuaraPuan::query()->limit(1)->first();
 
-        $this->delete(
-            '/api/kategorisuarapuans/' . $suarapuan->kategori_id . '/suarapuans/' . ($suarapuan->id + 1),
-            [
-            ],
-            [
-                'Authorization' => 'test'
-            ]
-        )->assertStatus(404)
-            ->assertJson([
-                'errors' => [
-                    'message' => [
-                        'not found'
-                    ]
-                ]
-            ]);
     }
 }

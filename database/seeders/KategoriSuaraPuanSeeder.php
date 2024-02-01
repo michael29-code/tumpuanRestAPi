@@ -11,7 +11,7 @@ class KategoriSuaraPuanSeeder extends Seeder
 {
     public function run(): void
     {
-        // $user = User::where('username', 'test')->first();
+        $user = User::where('username', 'test')->first();
         KategoriSuaraPuan::create([
             'nama' => 'Valina Evelyn',
             'deskripsi' => 'Saya suka warna biru'

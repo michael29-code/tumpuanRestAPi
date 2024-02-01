@@ -28,6 +28,7 @@ class SuaraPuanUpdateRequest extends FormRequest
             'content' => ['required', 'max:100'],
             'media' => ['required', 'max:100'],
             'dop' => ['required', 'max:100'],
+            'kategori_id' => ['required', 'max:100'],
         ];
     }
 

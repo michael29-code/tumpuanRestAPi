@@ -15,6 +15,7 @@ class SuaraPuan extends Model
     public $incrementing = true;
     public $timestamps = true;
     protected $fillable = [
+        "kategori_id",
         "title",
         "content",
         "media",
@@ -31,8 +32,8 @@ class SuaraPuan extends Model
         return $this->belongsTo(KategoriSuaraPuan::class, "kategori_id", "id");
     }
 
-    public function comment(): HasMany
-    {
-        return $this->hasMany(Comment::class, "suarapuan_id", "id");
-    }
+    // public function comment(): HasMany
+    // {
+    //     return $this->hasMany(Comment::class, "suarapuan_id", "id");
+    // }
 }

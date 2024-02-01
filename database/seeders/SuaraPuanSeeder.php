@@ -15,15 +15,19 @@ class SuaraPuanSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::query()->limit(1)->first();
+        $this->call([
+            KategoriSuaraPuanSeeder::class,
+        ]);
+
+        $user = User::where('username', 'test')->first();
         $kategori = KategoriSuaraPuan::query()->limit(1)->first();
         SuaraPuan::create([
-            'user_id' => $user->id,
-            'kategori_id' => $kategori->id,
             'title' => 'test',
             'content' => 'test',
             'media' => 'test',
             'dop' => 'test',
+            'kategori_id' => $kategori->id,
+            'user_id' => $user->id,
         ]);
     }
 }

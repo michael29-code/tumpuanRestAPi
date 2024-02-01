@@ -20,6 +20,7 @@ class SuaraPuanResource extends JsonResource
             'content' => $this->content,
             'media' => $this->media,
             'dop' => $this->dop,
+            'kategori_id' => $this->kategori_id
         ];
     }
 }

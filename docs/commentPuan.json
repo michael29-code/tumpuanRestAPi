@@ -11,13 +11,17 @@
         }
     ],
     "paths": {
-        "/api/comments": {
+        "/api/suarapuans/{idSuaraPuan}/comments": {
             "post": {
                 "description": "Create new comment",
                 "parameters": [
                     {
                         "name": "Authorization",
                         "in": "header"
+                    },
+                    {
+                        "name": "idSuaraPuan",
+                        "in": "path"
                     }
                 ],
                 "requestBody": {
@@ -27,14 +31,12 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "idUser": {
-                                        "type": "number"
-                                    },
-                                    "idSuaraPuan": {
-                                        "type": "number"
-                                    },
                                     "comment": {
                                         "type": "string"
+                                    },
+                                    "dop": {
+                                        "type": "string",
+                                        "format": "date"
                                     }
                                 }
                             }
@@ -52,20 +54,15 @@
                                         "data": {
                                             "type": "object",
                                             "properties": {
-                                                "idComment": {
-                                                    "type": "number"
-                                                },
-                                                "idUser": {
-                                                    "type": "number"
-                                                },
-                                                "idSuaraPuan": {
+                                                "id": {
                                                     "type": "number"
                                                 },
                                                 "comment": {
                                                     "type": "string"
                                                 },
                                                 "dop": {
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "format": "date"
                                                 }
                                             }
                                         },
@@ -104,20 +101,12 @@
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
-                                                   "idComment": {
-                                                    "type": "number"
-                                                    },
-                                                    "idUser": {
-                                                        "type": "number"
-                                                    },
-                                                    "idSuaraPuan": {
-                                                        "type": "number"
-                                                    },
                                                     "comment": {
                                                         "type": "string"
                                                     },
                                                     "dop": {
-                                                        "type": "string"
+                                                        "type": "string",
+                                                        "format": "date"
                                                     }
                                                 }
                                             }
@@ -136,7 +125,7 @@
                 }
             }
         },
-        "/api/comments/{id}": {
+        "/api/suarapuans/{idSuaraPuan}/comments/{idComment}": {
             "put": {
                 "description": "Update comment",
                 "parameters": [
@@ -145,7 +134,11 @@
                         "in": "header"
                     },
                     {
-                        "name": "id",
+                        "name": "idSuaraPuan",
+                        "in": "path"
+                    },
+                    {
+                        "name": "idComment",
                         "in": "path"
                     }
                 ],
@@ -158,6 +151,10 @@
                                 "properties": {
                                     "comment": {
                                         "type": "string"
+                                    },
+                                    "dop": {
+                                        "type": "string",
+                                        "format": "date"
                                     }
                                 }
                             }
@@ -178,9 +175,6 @@
                                                 "idComment": {
                                                     "type": "number"
                                                 },
-                                                "idUser": {
-                                                    "type": "number"
-                                                },
                                                 "idSuaraPuan": {
                                                     "type": "number"
                                                 },
@@ -188,7 +182,8 @@
                                                     "type": "string"
                                                 },
                                                 "dop": {
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "format": "date"
                                                 }
                                             }
                                         },
@@ -238,7 +233,8 @@
                                                     "type": "string"
                                                 },
                                                 "dop": {
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "format": "date"
                                                 }
                                             }
                                         },
@@ -260,7 +256,11 @@
                         "in": "header"
                     },
                     {
-                        "name": "id",
+                        "name": "idSuaraPuan",
+                        "in": "path"
+                    },
+                    {
+                        "name": "idComment",
                         "in": "path"
                     }
                 ],

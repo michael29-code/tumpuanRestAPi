@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(KategoriSuaraPuanSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(SuaraPuanSeeder::class);
+        $this->call(CommentPuanSeeder::class);
     }
 }

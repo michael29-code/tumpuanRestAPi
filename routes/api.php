@@ -36,6 +36,11 @@ Route::middleware(\App\Http\Middleware\ApiAuthMiddleware::class)->group(function
     Route::put('/kontakamans/{id}', [\App\Http\Controllers\KontakAmanController::class, 'update'])->where('id', '[0-9]+');
     Route::delete('/kontakamans/{id}', [\App\Http\Controllers\KontakAmanController::class, 'delete'])->where('id', '[0-9]+');
 
+    Route::post('/questions', [\App\Http\Controllers\QuestionController::class, 'create']);
+    Route::get('/questions/{id}', [\App\Http\Controllers\QuestionController::class, 'get'])->where('id', '[0-9]+');
+    Route::put('/questions/{id}', [\App\Http\Controllers\QuestionController::class, 'update'])->where('id', '[0-9]+');
+    Route::delete('/questions/{id}', [\App\Http\Controllers\QuestionController::class, 'delete'])->where('id', '[0-9]+');
+
     Route::post('/suarapuans', [\App\Http\Controllers\SuaraPuanController::class, 'create']);
     Route::get('/suarapuans/{id}', [\App\Http\Controllers\SuaraPuanController::class, 'get'])->where('id', '[0-9]+');
     Route::put('/suarapuans/{id}', [\App\Http\Controllers\SuaraPuanController::class, 'update'])->where('id', '[0-9]+');

@@ -35,6 +35,11 @@ class User extends Model implements Authenticatable
         return $this->hasMany(SuaraPuan::class, "user_id", "id");
     }
 
+    public function questions(): HasMany
+    {
+        return $this->hasMany(Question::class, "user_id", "id");
+    }
+
 
     // public function role(): BelongsTo
     // {

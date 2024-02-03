@@ -50,6 +50,11 @@ Route::middleware(\App\Http\Middleware\ApiAuthMiddleware::class)->group(function
     Route::get('/suarapuans/{idSuaraPuan}/commentpuans/{idComment}', [\App\Http\Controllers\CommentController::class, 'get'])->where('idsuarapuan', '[0-9]+')->where('idCommentPuan', '[0-9]+');
     Route::put('/suarapuans/{idSuaraPuan}/commentpuans/{idComment}', [\App\Http\Controllers\CommentController::class, 'update'])->where('idsuarapuan', '[0-9]+')->where('idCommentPuan', '[0-9]+');
     Route::delete('/suarapuans/{idSuaraPuan}/commentpuans/{idComment}', [\App\Http\Controllers\CommentController::class, 'delete'])->where('idsuarapuan', '[0-9]+')->where('idCommentPuan', '[0-9]+');
+
+    Route::post('/questions/{idQuestion}/options', [\App\Http\Controllers\OptionController::class, 'create'])->where('idquestion', '[0-9]+');
+    Route::get('/questions/{idQuestion}/options/{idOption}', [\App\Http\Controllers\OptionController::class, 'get'])->where('idquestion', '[0-9]+')->where('idoption', '[0-9]+');
+    Route::put('/questions/{idQuestion}/options/{idOption}', [\App\Http\Controllers\OptionController::class, 'update'])->where('idquestion', '[0-9]+')->where('idoption', '[0-9]+');
+    Route::delete('/questions/{idQuestion}/options/{idOption}', [\App\Http\Controllers\OptionController::class, 'delete'])->where('idquestion', '[0-9]+')->where('idoption', '[0-9]+');
 });
 
 Route::post('/kategoriuntukpuans', [\App\Http\Controllers\KategoriUntukPuanController::class, 'create']);

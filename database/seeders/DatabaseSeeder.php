@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentPuanSeeder::class);
         $this->call(KontakAmanSeeder::class);
         $this->call(QuestionSeeder::class);
+        $this->call(OptionSeeder::class);
     }
 }

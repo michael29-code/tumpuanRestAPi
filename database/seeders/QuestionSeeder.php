@@ -14,6 +14,8 @@ class QuestionSeeder extends Seeder
      */
     public function run(): void
     {
+        // $this->call(UserSeeder::class);
+
         $user = User::where('username', 'test')->first();
         Question::create([
             "questions" => "What is the capital of Indonesia?",

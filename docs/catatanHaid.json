@@ -1,0 +1,326 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Catatan Puan API",
+        "description": "Catatan Puan API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "paths": {
+        "/api/catatanhaids": {
+            "post": {
+                "description": "Create new Catatan Haid",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Create new Catatan Haid",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "start_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "end_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "cycle_length": {
+                                        "type": "number"
+                                    },
+                                    "period_length": {
+                                        "type": "number"
+                                    },
+                                    "start_prediction_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "end_prediction_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "status": {
+                                        "type": "string"
+                                    },
+                                    "reminder_active": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success create catatan haids",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "start_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "end_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "cycle_length": {
+                                                    "type": "number"
+                                                },
+                                                "period_length": {
+                                                    "type": "number"
+                                                },
+                                                "start_prediction_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "end_prediction_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "status": {
+                                                    "type": "string"
+                                                },
+                                                "reminder_active": {
+                                                    "type": "boolean"
+                                                }
+                                            }
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/catatanhaids/{iduser}": {
+            "put": {
+                "description": "Update Catatan Haid",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "iduser",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update Catatan Haid",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "start_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "end_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "cycle_length": {
+                                        "type": "number"
+                                    },
+                                    "period_length": {
+                                        "type": "number"
+                                    },
+                                    "start_prediction_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "end_prediction_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "status": {
+                                        "type": "string"
+                                    },
+                                    "reminder_active": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success update Catatan Haid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "start_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "end_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "cycle_length": {
+                                                    "type": "number"
+                                                },
+                                                "period_length": {
+                                                    "type": "number"
+                                                },
+                                                "start_prediction_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "end_prediction_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "status": {
+                                                    "type": "string"
+                                                },
+                                                "reminder_active": {
+                                                    "type": "boolean"
+                                                }
+                                            }
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Get Catatan Haid by id user",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "iduser",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get Catatan Haid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "start_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "end_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "cycle_length": {
+                                                    "type": "number"
+                                                },
+                                                "period_length": {
+                                                    "type": "number"
+                                                },
+                                                "start_prediction_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "end_prediction_date": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "status": {
+                                                    "type": "string"
+                                                },
+                                                "reminder_active": {
+                                                    "type": "boolean"
+                                                }
+                                            }
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove Catatan Haid",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "iduser",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success delete Catatan Haid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "boolean"
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

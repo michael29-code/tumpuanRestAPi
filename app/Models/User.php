@@ -40,6 +40,11 @@ class User extends Model implements Authenticatable
         return $this->hasMany(Question::class, "user_id", "id");
     }
 
+    public function catatan_haid(): BelongsTo
+    {
+        return $this->belongsTo(CatatanHaid::class, "user_id", "id");
+    }
+
 
     // public function role(): BelongsTo
     // {

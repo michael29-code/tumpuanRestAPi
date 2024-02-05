@@ -55,6 +55,11 @@ Route::middleware(\App\Http\Middleware\ApiAuthMiddleware::class)->group(function
     Route::get('/questions/{idQuestion}/options/{idOption}', [\App\Http\Controllers\OptionController::class, 'get'])->where('idquestion', '[0-9]+')->where('idoption', '[0-9]+');
     Route::put('/questions/{idQuestion}/options/{idOption}', [\App\Http\Controllers\OptionController::class, 'update'])->where('idquestion', '[0-9]+')->where('idoption', '[0-9]+');
     Route::delete('/questions/{idQuestion}/options/{idOption}', [\App\Http\Controllers\OptionController::class, 'delete'])->where('idquestion', '[0-9]+')->where('idoption', '[0-9]+');
+
+    Route::post('/catatanhaids', [\App\Http\Controllers\CatatanHaidController::class, 'create']);
+    Route::get('/catatanhaids/{iduser}', [\App\Http\Controllers\CatatanHaidController::class, 'get'])->where('iduser', '[0-9]+');
+    Route::put('/catatanhaids/{iduser}', [\App\Http\Controllers\CatatanHaidController::class, 'update'])->where('iduser', '[0-9]+');
+    Route::delete('/catatanhaids/{iduser}', [\App\Http\Controllers\CatatanHaidController::class, 'delete'])->where('iduser', '[0-9]+');
 });
 
 Route::post('/kategoriuntukpuans', [\App\Http\Controllers\KategoriUntukPuanController::class, 'create']);

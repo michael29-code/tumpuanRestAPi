@@ -19,9 +19,10 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('gender')->nullable();
             $table->date('dob')->nullable();
-            $table->integer('role')->nullable(); // bukan auto_increment, bukan primary key
+            $table->unsignedBigInteger("role_id")->nullable(false)->default(1);
             $table->string("token", 100)->nullable()->unique("users_token_unique");
             $table->timestamps(); // created_at dan updated_at
+            $table->foreign("role_id")->on("roles")->references("id");
         });
     }
 

@@ -23,7 +23,7 @@ class RoleTest extends TestCase
 
     public function testCreateSuccess()
     {
-        $this->seed([UserSeeder::class]);
+        // $this->seed([UserSeeder::class]);
 
         $this->post('/api/roles', [
             'nama_role' => 'Untuk Puan',

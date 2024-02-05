@@ -22,7 +22,7 @@ class User extends Model implements Authenticatable
         'password',
         'gender',
         'dob',
-        'role',
+        'role_id',
         'name'
     ];
     public function kontak_amen(): HasMany

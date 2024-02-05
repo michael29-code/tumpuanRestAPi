@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             'name' => 'test',
             "dob" => "2004-01-1",
             'gender' => 0,
-            'role' => 0,
+            'role_id' => 1,
             'token' => 'test'
         ]);
 
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
             'name' => 'test2',
             "dob" => "2004-01-1",
             'gender' => 0,
-            'role' => 0,
+            'role_id' => 1,
             'token' => 'test2'
         ]);
     }
